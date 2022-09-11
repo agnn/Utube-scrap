@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Review Page</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+
+      <link rel="stylesheet" href="./style1.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style1.css') }}">
+
+
+</head>
+
+<body>
+
+  <div class="table-users">
+   <div class="header">Video Title :
+   <span> {{list_to_pass[0]['vid_title']}}</span>
+   </div>
+
+      <div class="header1">&ensp;<b>Total Views:</b> <span> {{list_to_pass[0]['vid_view']}}&ensp;&ensp;|</span><span> &ensp;<b>Total Likes :</b> </span>
+      <span> {{list_to_pass[0]['vid_likes']}}&ensp;&ensp;|</span>
+          <span> &ensp;<b>Total Comments :</b></span>
+      <span> {{list_to_pass[0]['vid_comments']}}&ensp;&ensp;|</span></b></b>
+          <span><a href="{{url_for('retrieve_data',vid_id = list_to_pass[0]['vid_id'])}}">Download as Excel</a> </span>
+      </div>
+   <table cellspacing="3">
+      <tr>
+         <th width="600" style="color:red;text-align: left;font-size:1.2em;">Comments</th>
+      </tr>
+         {% for comments in list_to_pass[0]['vid_auth_comment'] %}
+      <tr>
+          <td><span>Comment By :</span>{{comments[0]}} </br></br>
+          {{comments[1]}}</td>
+
+
+       {% endfor %}
+   </table>
+</div>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Youtube Links</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+
+      <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+
+</head>
+
+<body>
+    <p style="text-align:center;color:red;">WARNING : It will take a while to load the next page. Please be patient, good things take time !!</p>
+  <div class="table-users">
+   <table cellspacing=".5">
+      <tr>
+          <th style="font-size:2em;">Thumbnail</th>
+          <th style="font-size:2em;">Title</th>
+         <th style="font-size:2em;">Link</th>
+          <th style="font-size:2em;">More</th>
+
+      </tr>
+         {% for item in list_content %}
+      <tr>
+
+          <td><img src="{{item['Thumbnail']}}"></td>
+          <td style="text-align: left;">{{item['Title']}}</td>
+          <td><a href="{{item['Link']}}" target="_blank"><button>Play video</button></a></td>
+          <td>
+            <form action="/scrapl" method="post">
+                <input type="hidden"  name="url" value={{item['Link']}}>
+                <input type="submit" value="Scrap" />
+                </form></td>
+       {% endfor %}
+   </table>
+</div>
+
+
+</body>
+
+</html>

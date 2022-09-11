@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+<title>Links</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <img align="right" src="https://icon-library.com/images/red-download-icon/red-download-icon-19.jpg"  >
+
+    <div class="form">
+        <form action="/review" method="POST">
+            <input type="text" name="content" id="content">
+            <input type="submit" value="Search">
+        </form>
+        <p style="text-align:center;color:black;">Please paste youtube video link of your favourite youtubers video section URL</p>
+        <p style="text-align:center;color:black;"><em>Example : https://www.youtube.com/user/krishnaik06/videos</em></p>
+        <p style="text-align:center;color:red;">WARNING : Please note it may take a while to load the next page.</p>
+    </div>
+</div>
+{% endblock %}
+
