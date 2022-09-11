@@ -9,7 +9,7 @@ import pandas as pd
 
 app = Flask(__name__)
 
-host = 'appdbscrapper.curso3av0eit.us-east-1.rds.amazonaws.com'
+host = '.curso3av0eit.us-east-1.rds.amazonaws.com'
 user = 'admin'
 '''
 host = 'localhost'
@@ -20,7 +20,7 @@ db = client.test
 database = client['YoutubeScrapper']
 collection = database["image64"]
 
-mydb = conn.connect(host=host, user=user, passwd="Failsafeauto#1")
+mydb = conn.connect(host=host, user=user, passwd=".#1")
 cursor = mydb.cursor()
 cursor.execute("USE dbYoutube")
 
