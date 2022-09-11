@@ -23,3 +23,4 @@ pillow
 mysql-connector-python
 pymongo[srv]
 openpyxl
+pandas
