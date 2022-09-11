@@ -8,13 +8,13 @@ import pymongo
 import pandas as pd
 
 app = Flask(__name__)
-'''
+
 host = 'appdbscrapper.curso3av0eit.us-east-1.rds.amazonaws.com'
 user = 'admin'
 '''
 host = 'localhost'
 user = 'root'
-
+'''
 client = pymongo.MongoClient("mongodb+srv://achowdh:failsafe@agnik0.mmtem.mongodb.net/?retryWrites=true&w=majority")
 db = client.test
 database = client['YoutubeScrapper']
