@@ -100,7 +100,7 @@ async def scrap_video_content(url):
     session._browser = browser
     r = await session.get(url)
 
-    await r.html.arender(sleep=1, keep_page=True, scrolldown=30)
+    await r.html.arender(sleep=1, keep_page=True, scrolldown=30,timeout=30000)
 
     views = r.html.find('span.view-count.style-scope.ytd-video-view-count-renderer')
     likes = r.html.find('yt-formatted-string#text.style-scope.ytd-toggle-button-renderer.style-text')
