@@ -150,7 +150,7 @@ async def scrap_video_url(u):
     session._browser = browser
     r = await session.get(u)
 
-    await r.html.arender(sleep=1,keep_page=True, scrolldown=4,timeout=30)
+    await r.html.arender(sleep=1,keep_page=True, scrolldown=4,timeout=30000)
 
     video_titles = ([item.text for item in r.html.find('#video-title')])
 
