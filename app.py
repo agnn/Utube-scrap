@@ -144,7 +144,7 @@ async def scrap_video_url(u):
         'handleSIGINT': False,
         'handleSIGTERM': False,
         'handleSIGHUP': False,
-        'autoClose': False'
+        'autoClose': False,
         'args':["--no-sandbox"]
     })
     session._browser = browser
