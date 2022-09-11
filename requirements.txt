@@ -21,5 +21,5 @@ pyppeteer
 selenium
 pillow
 mysql-connector-python
-"pymongo[srv]"
+pymongo[srv]
 openpyxl
