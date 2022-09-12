@@ -34,7 +34,7 @@ db = client.test
 database = client['YoutubeScrapper']
 collection = database["image64"]
 # created connection to MYSQL host
-mydb = conn.connect(host=host, user=user, passwd="Failsafe#1")
+mydb = conn.connect(host=host, user=user, passwd="Failsafeauto#1")
 cursor = mydb.cursor()
 
 
