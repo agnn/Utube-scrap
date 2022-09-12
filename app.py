@@ -9,6 +9,7 @@ import pandas as pd
 
 app = Flask(__name__)
 
+host = '.curso3av0eit.us-east-1.rds.amazonaws.com'
 # while running in local, use all your database credential
 # the database will be build as you keep scrapping more data
 # once there is enough data then we can extract data directly from database to run any analysis
@@ -32,10 +33,11 @@ db = client.test
 # create database and collection
 database = client['YoutubeScrapper']
 collection = database["image64"]
-
-# create AWS RDS connection or connect to MYSQL local host
-mydb = conn.connect(host=host, user=user, passwd="Failsafeauto#1")
+# created connection to MYSQL host
+mydb = conn.connect(host=host, user=user, passwd=".#1")
 cursor = mydb.cursor()
+
+
 
 
 # create database , if already exists it will ignore
@@ -44,6 +46,7 @@ query = "CREATE TABLE IF NOT EXISTS dbYoutube.links_table(video_id varchar(200) 
 cursor.execute(query)
 mydb.commit()
 
+
 # create table , if already exists it will ignore
 query_1 = "CREATE TABLE IF NOT EXISTS dbYoutube.video_details_table(video_id varchar(200) primary key not null,vid_likes varchar(200),vid_views varchar(100),vid_comments varchar(100))"
 cursor.execute(query_1)
@@ -51,6 +54,7 @@ mydb.commit()
 
 # use table
 cursor.execute("USE dbYoutube")
+
 
 # this function is used to insert channel video data into table
 def insert_data(dict_values):
@@ -140,13 +144,13 @@ async def scrap_video_content(url):
     vid_id = url[url.find('=') + 1:]
 
 
-    title = vid_title[0].text   # extract title of the video
+    title = vid_title[0].text  # extract title of the video
     views = (views[0].text.split()[0])  # extract number of views
     comment_count = (comment_count[0].text.split()[0])  # extract number of comments
-    likes = likes[0].text   # extract total likes
+    likes = likes[0].text  # extract total likes
 
-    author_list = [i.text for i in author]      # extracting authors of comments
-    comments_list = [i.text for i in author_comment]    # extracting the comments
+    author_list = [i.text for i in author]  # extracting authors of comments
+    comments_list = [i.text for i in author_comment]  # extracting the comments
 
     data = []
 
