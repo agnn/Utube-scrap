@@ -165,7 +165,7 @@ async def scrap_video_content(url):
     author_comments_list = list(zip(author_list, comments_list))
 
     r.close()
-    browser.close()
+    
 
     return data, author_comments_list       # return both the list
 
@@ -212,7 +212,7 @@ async def scrap_video_url(u):
     data = list(zip(video_titles, link, thumb_nail))
 
     r.close()
-    browser.close()
+   
 
     return data # return the data
 
@@ -358,7 +358,7 @@ def test_run():
 
                 # dictionary to store the extracted details
                 d = {
-                    "Sl_No": i,
+                    "Sl_No": count,
                     "Vid_id": vid_id,
                     "Channel_id": channelid,
                     "Title": items[0],
