@@ -9,7 +9,7 @@ import pandas as pd
 
 app = Flask(__name__)
 
-host = '.curso3av0eit.us-east-1.rds.amazonaws.com'
+
 # while running in local, use all your database credential
 # the database will be build as you keep scrapping more data
 # once there is enough data then we can extract data directly from database to run any analysis
@@ -34,7 +34,7 @@ db = client.test
 database = client['YoutubeScrapper']
 collection = database["image64"]
 # created connection to MYSQL host
-mydb = conn.connect(host=host, user=user, passwd=".#1")
+mydb = conn.connect(host=host, user=user, passwd="Failsafe#1")
 cursor = mydb.cursor()
 
 
